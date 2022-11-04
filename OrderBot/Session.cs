@@ -26,17 +26,17 @@ namespace OrderBot
                 case State.WELCOMING:
                     aMessages.Add("Welcome to Dental Clinic!");
                     aMessages.Add("Are you looking for an appointment?");
-                    this.nCur = State.SIZE;
+                    this.nCur = State.BOOK;
                     break;
-                case State.SIZE:
+                case State.BOOK:
                     this.oOrder.Size = sInMessage;
                     this.oOrder.Save();
-                    aMessages.Add("What protein would you like on this  " + this.oOrder.Size + " Shawarama?");
-                    this.nCur = State.PROTEIN;
+                    aMessages.Add("Which date would you like the appointment  " + this.oOrder.Size + " ?");
+                    this.nCur = State.SERVICE;
                     break;
-                case State.PROTEIN:
-                    string sProtein = sInMessage;
-                    aMessages.Add("What toppings would you like on this  " + this.oOrder.Size + " " + sProtein + " Shawarama?");
+                case State.SERVICE:
+                    string sSERVICE = sInMessage;
+                    aMessages.Add("Do you need emergency appointment or regular cleaning appointment " + this.oOrder.Size + " " + sSERVICE + " ?");
                     break;
 
 

@@ -6,7 +6,7 @@ namespace OrderBot
     {
         private enum State
         {
-            WELCOMING, SIZE, PROTEIN
+            WELCOMING, BOOK, SERVICE
         }
 
         private State nCur = State.WELCOMING;
@@ -31,12 +31,12 @@ namespace OrderBot
                 case State.BOOK:
                     this.oOrder.Size = sInMessage;
                     this.oOrder.Save();
-                    aMessages.Add("Which date would you like the appointment  " + this.oOrder.Size + " ?");
+                    aMessages.Add("Which date would you like the appointment?");
                     this.nCur = State.SERVICE;
                     break;
                 case State.SERVICE:
                     string sSERVICE = sInMessage;
-                    aMessages.Add("Do you need emergency appointment or regular cleaning appointment " + this.oOrder.Size + " " + sSERVICE + " ?");
+                    aMessages.Add("Do you need regular cleaning appointment " + " " + sSERVICE + " ?");
                     break;
 
 

@@ -35,7 +35,8 @@ namespace OrderBot
                     this.nCur = State.SERVICE;
                     break;
                 case State.SERVICE:
-                    string sSERVICE = sInMessage;
+                    string sSERVICE = this.oOrder.Service = sInMessage;
+                    this.oOrder.Save();
                     aMessages.Add("Do you need regular cleaning appointment " + " " + sSERVICE + " ?");
                     break;
 
